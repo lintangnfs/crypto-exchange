@@ -1,0 +1,15 @@
+:root {
+  --daybreak-blue-6: #1890ff;
+}
+
+body {
+  margin: 0;
+}
+
+/* Login */
+
+.layout {
+  background: #00355f;
+  width: 100%;
+  height: 100vh;
+}
