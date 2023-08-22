@@ -1,13 +1,6 @@
-import React, { useState } from "react";
-import Button from "@lintangnfs/button";
+import React from "react";
+import Layout from "@/container/Layout";
 
 export default function Home() {
-
-  return (
-    <div className="layout">
-      <React.Fragment>
-        <div style={{ display: "flex", justifyContent: "space-around" }}></div>
-      </React.Fragment>
-    </div>
-  );
+  return <Layout title="Crypto Exchange">hahaha</Layout>;
 }
