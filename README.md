@@ -1,5 +1,5 @@
-# Phonebook 
-Welcome to my learning repository. A phone book application 
+# Crypto Exchange 
+Welcome to Crypto Exchange Website
 
 ## Description 
 * This repository consist of 1 app

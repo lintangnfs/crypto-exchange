@@ -25,7 +25,7 @@ export default function Layout({ children, title }: ILayout) {
       </Head>
       <div className="layout">
         <Header />
-        {children}
+        <div className="content">{children}</div>
       </div>
     </div>
   );

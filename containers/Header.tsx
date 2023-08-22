@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const Header = (props) => {
+const Header = () => {
   return (
     <header>
       <div className="header-content">
@@ -10,8 +10,8 @@ const Header = (props) => {
             <Image
               src={`${process.env.NEXT_PUBLIC_HOST_IMAGE}?id=1PsGDYooNP8tQ8F5P8i7aSFtRHuXhzqoS`}
               alt="Crypto Exchange"
-              width={30}
-              height={30}
+              width={25}
+              height={25}
             />
           </div>
           <h2 className="header-title">Crypto Exchange</h2>
@@ -24,7 +24,7 @@ const Header = (props) => {
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 30px;
           }
           .header-logo,
           .header-action {

@@ -1,4 +1,4 @@
-import { POSTS } from "@/const/queryKeys";
+import { POSTS } from "@/consts/queryKeys";
 import { fetchGetPosts, IFetchGetPosts } from "@/services/api";
 
 export const queryGetPosts = (payload: IFetchGetPosts) => {

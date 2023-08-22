@@ -16,7 +16,7 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"],
-      "@/const/*": ["./const/*"],
+      "@/consts/*": ["./consts/*"],
       "@/components/*": ["./components/*"],
       "@/containers/*": ["./containers/*"],
       "@/helpers/*": ["./helpers/*"],
