@@ -6,7 +6,7 @@
     "dev": "cp .env.dev .env && next dev",
     "local": "cp .env.loc .env && next dev -p 3001",
     "build": "next build",
-    "start": "cp .env.dev .env && next start -p 3300",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
