@@ -1,17 +1,17 @@
 import { api } from "../api";
 
-export interface IFetchGetPosts {
-  id?: string;
+export interface IFetchGetCoinMarkets {
+  vs_currency?: string;
 }
 
-export const fetchGetPosts = async (payload: IFetchGetPosts) => {
-  const { id } = payload;
+export const fetchGetCoinMarkets = async (payload: IFetchGetCoinMarkets) => {
+  const { vs_currency } = payload;
 
   const paramsSearch = new URLSearchParams({
-    id,
+    vs_currency,
   });
 
-  const url = `/posts?${paramsSearch}`;
+  const url = `/coins/markets?${paramsSearch}`;
 
   const response = await api(url, {
     method: "GET",

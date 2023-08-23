@@ -1,6 +1,16 @@
 import React from "react";
 import Head from "next/head";
-import Header from "./Header";
+import dynamic from "next/dynamic";
+import Skeleton from "@/components/Skeleton";
+
+const Header = dynamic(() => import("@/containers/Header"), {
+  ssr: false,
+  loading: () => (
+    <header>
+      <Skeleton height="60px" />
+    </header>
+  ),
+});
 
 interface ILayout {
   children: React.ReactNode;

@@ -47,12 +47,12 @@ const ErrorLayout: FC<IErrorLayout> = (props) => {
             height: 100vh;
           }
           .error-type {
-            color: #fff;
+            color: #00355f;
             font-size: 80px;
             margin: 0;
           }
           .error-wording {
-            color: #fff;
+            color: #00355f;
             margin: 10px 0 20px;
           }
         `}

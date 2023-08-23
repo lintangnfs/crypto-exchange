@@ -1,8 +1,7 @@
 import React from "react";
-
 interface ISection {
   children: React.ReactNode;
-  title?: string;
+  title?: string | React.ReactNode;
   subtitle?: string;
 }
 
@@ -19,7 +18,7 @@ const Section = ({ title, subtitle, children }: ISection) => {
       <style jsx>
         {`
           .section {
-            width: 100%;
+            width: inherit;
             padding: 40px 30px;
           }
           .section-title h3 {

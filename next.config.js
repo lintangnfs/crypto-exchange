@@ -5,7 +5,7 @@ const nextConfig = {
     rootDir: __dirname,
   },
   images: {
-    domains: ["drive.google.com"],
+    domains: ["drive.google.com", "assets.coingecko.com"],
   },
 };
 

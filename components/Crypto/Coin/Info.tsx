@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import Image from "next/image";
-import CoinReturn from "./Return";
+import CoinImage from "./Image";
 
 export interface ICoinInfo {
   image?: string;
@@ -9,39 +8,46 @@ export interface ICoinInfo {
   name?: string;
 }
 
+const Wrapper = styled.div<{}>`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+`;
+
+const NameWrapper = styled.div<{}>`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+const Code = styled.p<{}>`
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e2329;
+  margin: 0;
+`;
+
+const Name = styled.p<{}>`
+  font-size: 14px;
+  color: #808080;
+  margin: 0;
+`;
+
 const CoinInfo: FC<ICoinInfo> = (props) => {
-  const Wrapper = styled.div<{}>`
-    align-items: center;
-    display: flex;
-    gap: 16px;
-  `;
-
-  const Code = styled.p<{}>`
-    font-size: 16px;
-    font-weight: 600;
-    color: #1e2329;
-    margin-bottom: 2px;
-    margin: 0;
-  `;
-
-  const Name = styled.p<{}>`
-    font-size: 14px;
-    color: #808080;
-    margin-bottom: 2px;
-    margin: 0;
-  `;
-
   return (
     <React.Fragment>
       <Wrapper>
-        <Image
-          src={props.image}
-          alt={`coin-image-${props.name}`}
+        <CoinImage
+          image={props.image}
+          name={props.name}
           height={32}
           width={32}
         />
-        <Code>{props.code}</Code>
-        <Name>{props.name}</Name>
+        <NameWrapper>
+          <Code>{props.code}</Code>
+          {props.name && <Name>{props.name}</Name>}
+        </NameWrapper>
       </Wrapper>
     </React.Fragment>
   );
