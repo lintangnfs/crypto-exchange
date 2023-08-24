@@ -18,17 +18,12 @@ const TableWrapper = styled.table<{}>`
 `;
 
 const TR = styled.tr<{}>`
-  width: 100%;
   border-bottom: solid 1px #8080804d;
 `;
 
-const THead = styled.thead<{}>`
-  width: 100%;
-`;
+const THead = styled.thead<{}>``;
 
-const TBody = styled.tbody<{}>`
-  width: 100%;
-`;
+const TBody = styled.tbody<{}>``;
 
 const TH = styled.th<{}>`
   min-width: 80px;
@@ -37,13 +32,13 @@ const TH = styled.th<{}>`
   padding: 10px 1.25rem;
 `;
 
-const TD = styled.td<{ clickable: boolean }>`
+const TD = styled.td<{ $clickable: boolean }>`
   min-width: 80px;
   padding: 1.25rem;
   font-size: 16px;
   font-weight: 600;
   ${(props) =>
-    props.clickable &&
+    props.$clickable &&
     css`
       cursor: pointer;
     `};
@@ -75,7 +70,7 @@ const Table: FC<ITable> = (props) => {
             {props.columns?.map((column, index) => (
               <TD
                 key={`data-value-${column.dataIndex}-${String(index)}`}
-                clickable={!!props.rowDataClick}
+                $clickable={!!props.rowDataClick}
                 onClick={() => handleClickRow(item)}
               >
                 {column.render

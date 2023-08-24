@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
 import Skeleton from "@/components/Skeleton";
-import SkeletonCoinInfo from "@/components/Skeleton/CoinInfo";
+import SkeletonCoinInfo from "@/components/Skeleton/Coin/Info";
 
 // State Management
 import { useQuery } from "@tanstack/react-query";
@@ -28,6 +28,11 @@ const CoinChange = dynamic(() => import("@/components/Crypto/Coin/Change"), {
   loading: () => <Skeleton height="18.5px" width="69.48px" radius="8px" />,
 });
 
+const CoinPrice = dynamic(() => import("@/components/Crypto/Coin/Price"), {
+  ssr: false,
+  loading: () => <Skeleton height="18.5px" width="69.48px" radius="8px" />,
+});
+
 export interface ICoinList {
   data?: any;
 }
@@ -41,9 +46,9 @@ const CoinList: FC<ICoinList> = (props) => {
     }),
   });
 
-  const handleDetail = (data) => {
+  const handleDetail = (data: ICoinMarket) => {
     (async () => {
-      const pathname = `/market/${data.name}`;
+      const pathname = `/market/${data.id}`;
 
       const fullPathname = `${pathname}`;
 
@@ -76,7 +81,7 @@ const CoinList: FC<ICoinList> = (props) => {
       currency: "USD",
       dataIndex: "current_price",
       render: (data: ICoinMarket) => {
-        return <>{formatToCurrency(data.current_price)}</>;
+        return <CoinPrice price={data.current_price} />;
       },
     },
     {

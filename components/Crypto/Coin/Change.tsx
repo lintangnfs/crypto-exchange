@@ -10,7 +10,6 @@ const Wrapper = styled.div<{}>`
   align-items: center;
   display: flex;
   gap: 16px;
-  margin-bottom: 0.8rem;
 `;
 
 const Change = styled.div<{ $size?: string; $down: boolean }>`
@@ -55,7 +54,7 @@ const CoinChange: FC<ICoinChange> = (props) => {
         <Change $size={props.size} $down={isNegativeChange}>
           <Arrow $down={isNegativeChange}>➤</Arrow>
           <p>{` ${props.dataChange
-            .toFixed(2)
+            ?.toFixed(2)
             .toString()
             .replace("-", "")} %`}</p>
         </Change>

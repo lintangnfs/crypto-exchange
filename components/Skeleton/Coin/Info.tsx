@@ -1,8 +1,11 @@
-import Skeleton from ".";
+import Skeleton from "..";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-export interface ISkeletonCoinInfo {}
+export interface ISkeletonCoinInfo {
+  hideCode?: boolean;
+  hideName?: boolean;
+}
 
 const Wrapper = styled.div<{
   width?: string;
@@ -15,20 +18,25 @@ const Wrapper = styled.div<{
   gap: 18px;
 `;
 
+const NameWrapper = styled.div<{}>`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
 const SkeletonCoinInfo: FC<ISkeletonCoinInfo> = (props) => {
   return (
     <React.Fragment>
       <Wrapper>
         <Skeleton width="32px" height="32px" radius="50px" />
-        <div>
-          <Skeleton
-            width="60px"
-            height="18pxpx"
-            radius="4px"
-            margin="0 0 10px"
-          />
-          <Skeleton width="63px" height="16px" radius="4px" margin="5px 0 0" />
-        </div>
+        <NameWrapper>
+          {!props.hideCode && (
+            <Skeleton width="60px" height="18pxpx" radius="4px" margin="0" />
+          )}
+          {!props.hideName && (
+            <Skeleton width="63px" height="16px" radius="4px" margin="0" />
+          )}
+        </NameWrapper>
       </Wrapper>
     </React.Fragment>
   );

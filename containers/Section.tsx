@@ -19,7 +19,7 @@ const Section = ({ title, subtitle, children }: ISection) => {
         {`
           .section {
             width: inherit;
-            padding: 40px 30px;
+            padding: 40px 5%;
           }
           .section-title h3 {
             color: #00355f;
