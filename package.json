@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "cp .env.dev .env && next dev",
     "local": "cp .env.loc .env && next dev -p 3001",
-    "build": "next build",
+    "build": " cp .env.dev .env && next build",
     "start": "next start",
     "lint": "next lint"
   },

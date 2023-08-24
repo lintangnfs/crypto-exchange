@@ -15,5 +15,6 @@ export const queryGetCoinMarkets = (payload: IFetchGetCoinMarkets) => {
       await fetchGetCoinMarkets({
         vs_currency,
       }),
+    refetchInterval: 2000,
   };
 };
