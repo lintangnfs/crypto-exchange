@@ -6,15 +6,13 @@ export interface IButton {
   onClick(): void;
   width?: string;
   radius?: string;
-  color?: string;
-  info?: boolean;
+  type?: string;
 }
 
 const Button = styled.button<{
   width?: string;
   radius?: string;
-  color?: string;
-  $info?: boolean;
+  $type?: string;
 }>`
   background: #f47820;
   border-radius: 8px;
@@ -24,26 +22,42 @@ const Button = styled.button<{
   font-size: 16px;
   margin: 5px 0;
   cursor: pointer;
-  ${(props) =>
-    css`
-      width: ${props.width};
-      color: ${props.$info ? "#000" : "#fff"};
-      background: ${props.$info ? "#8080804d" : "#f47820"};
-      padding: ${props.$info ? "4px 8px" : "8px 16px"};
-      font-size: ${props.$info ? "14px" : "16px"};
-      border-radius: ${props.radius};
-    `};
+  ${(props) => {
+    switch (props.$type) {
+      case "info":
+        return css`
+          color: #000;
+          background: #8080804d;
+          width: ${props.width};
+          border-radius: ${props.radius};
+        `;
+      case "info-small":
+        return css`
+          color: #000;
+          background: #8080804d;
+          padding: 4px 8px;
+          font-size: 14px;
+          width: ${props.width};
+          border-radius: ${props.radius};
+        `;
+      default:
+        return css`
+          width: ${props.width};
+          border-radius: ${props.radius};
+        `;
+    }
+  }}
 `;
 
 const ButtonComponent: FC<IButton> = (props) => {
-  const { children, onClick, width, radius, info } = props;
+  const { children, onClick, width, radius, type } = props;
   return (
     <React.Fragment>
       <Button
         onClick={onClick ?? null}
         width={width}
         radius={radius}
-        $info={info}
+        $type={type}
       >
         {children}
       </Button>

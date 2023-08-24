@@ -38,7 +38,7 @@ const CurrentPrice: FC<ICurrentPrice> = (props) => {
   const lastUpdate = data?.last_updated;
 
   return (
-    <React.Fragment>
+    <div>
       <Subtitle>
         {!!lastUpdate &&
           moment(lastUpdate).format("dddd, MMMM DD YYYY hh:mm:ss")}
@@ -49,7 +49,7 @@ const CurrentPrice: FC<ICurrentPrice> = (props) => {
           dataChange={data?.market_data?.market_cap_change_percentage_24h}
         />
       </Wrapper>
-    </React.Fragment>
+    </div>
   );
 };
 

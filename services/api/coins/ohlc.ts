@@ -4,6 +4,7 @@ export interface IFetchGetCoinOHLC {
   slug: string;
   vs_currency?: string;
   days?: string;
+  enabled?: boolean;
 }
 
 export const fetchGetCoinOHLC = async (payload: IFetchGetCoinOHLC) => {

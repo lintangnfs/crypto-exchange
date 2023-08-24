@@ -8,6 +8,11 @@ export interface ISliderComponent {
   onClick?: (value: any) => void;
 }
 
+const Wrapper = styled.div<{}>`
+  width: 100%;
+  position: relative;
+`;
+
 const Container = styled.div<{}>`
   position: relative;
   overflow: hidden;
@@ -22,7 +27,8 @@ const Slider = styled.div<{}>`
   position: relative;
   overflow: hidden;
   display: flex;
-  gap: 15px;
+  gap: 8px;
+  justify-content: space-between;
   scroll-behavior: smooth;
   scroll-snap-type: x var(--tw-scroll-snap-strictness);
   --tw-scroll-snap-strictness: mandatory;
@@ -31,17 +37,27 @@ const Slider = styled.div<{}>`
   hieght: 100%;
   @media only screen and (max-width: 768px) {
     width: max-content;
-    overflowx: auto;
+    overflow: auto;
   }
 `;
 
 const SliderItem = styled.div<{}>`
-  min-width: 180px;
+  min-width: 220px;
   width: fit-content;
   min-height: 180px;
   height: fit-content;
   scroll-snap-align: start;
   cursor: pointer;
+  @media only screen and (max-width: 1250px) {
+    min-width: 200px;
+    overflow: auto;
+  }
+  @media only screen and (max-width: 768px) {
+    min-width: 180px;
+    width: fit-content;
+    min-height: 180px;
+    height: fit-content;
+  }
 `;
 
 const Arrow = styled.div<{}>`
@@ -51,8 +67,12 @@ const Arrow = styled.div<{}>`
   justify-content: space-between;
   height: 100%;
   top: 30%;
+  visibility: hidden;
+  @media only screen and (max-width: 1100px) {
+    visibility: visible;
+  }
   @media only screen and (max-width: 768px) {
-    display: none;
+    visibility: hidden;
   }
 `;
 
@@ -69,6 +89,13 @@ const Button = styled.div<{}>`
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+`;
+
+const ButtonLeft = styled(Button)`
+  margin-left: -1.5rem;
+`;
+const ButtonRight = styled(Button)`
+  margin-right: -1.5rem;
 `;
 
 const SliderComponent: FC<ISliderComponent> = (props) => {
@@ -122,9 +149,9 @@ const SliderComponent: FC<ISliderComponent> = (props) => {
 
   return (
     <React.Fragment>
-      <Container>
+      <Wrapper>
         <Arrow className="mini-hide">
-          <Button onClick={() => movePrev()}>
+          <ButtonLeft onClick={() => movePrev()}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-12 w-20 -ml-5"
@@ -139,8 +166,8 @@ const SliderComponent: FC<ISliderComponent> = (props) => {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-          </Button>
-          <Button onClick={() => moveNext()}>
+          </ButtonLeft>
+          <ButtonRight onClick={() => moveNext()}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-12 w-20 -ml-5"
@@ -155,25 +182,27 @@ const SliderComponent: FC<ISliderComponent> = (props) => {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-          </Button>
+          </ButtonRight>
         </Arrow>
-        <Slider ref={sliderRef}>
-          {data?.map((item: any, index: number) => (
-            <SliderItem key={item.name + String(index)}>
-              <Card>
-                <div onClick={() => props.onClick(item)}>
-                  <CoinOverview
-                    price={item.current_price}
-                    image={item.image}
-                    code={item.symbol?.toUpperCase()}
-                    dataChange={item.price_change_percentage_24h}
-                  />
-                </div>
-              </Card>
-            </SliderItem>
-          ))}
-        </Slider>
-      </Container>
+        <Container>
+          <Slider ref={sliderRef}>
+            {data?.map((item: any, index: number) => (
+              <SliderItem key={item.name + String(index)}>
+                <Card>
+                  <div onClick={() => props.onClick(item)}>
+                    <CoinOverview
+                      price={item.current_price}
+                      image={item.image}
+                      code={item.symbol?.toUpperCase()}
+                      dataChange={item.price_change_percentage_24h}
+                    />
+                  </div>
+                </Card>
+              </SliderItem>
+            ))}
+          </Slider>
+        </Container>
+      </Wrapper>
     </React.Fragment>
   );
 };

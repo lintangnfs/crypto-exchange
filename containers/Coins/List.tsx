@@ -96,6 +96,19 @@ const CoinList: FC<ICoinList> = (props) => {
       },
     },
     {
+      title: "Market Cap",
+      dataIndex: "market_cap",
+      className: "mini-hide",
+      render: (data: ICoinMarket) => {
+        return <CoinPrice price={data.market_cap} />;
+      },
+    },
+    {
+      title: "Ranking",
+      dataIndex: "market_cap_rank",
+      className: "mini-hide",
+    },
+    {
       title: "Info",
       dataIndex: "price_change_percentage_24h",
       className: "mini-show text-right",

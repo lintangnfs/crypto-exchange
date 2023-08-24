@@ -35,14 +35,13 @@ const fetchCoinMarketChart = async (
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const vs_currency = req.query.vs_currency || "usd";
-  const slug = req.query.slug;
+  const { slug, vs_currency = "usd", days = "1" } = req.query;
 
   const { code, response } = await fetchCoinMarketChart({
     ...req.query,
     vs_currency: vs_currency.toString(),
     slug: slug.toString(),
-    days: "1",
+    days: days.toString(),
   });
 
   res.status(code).json(response);

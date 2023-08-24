@@ -17,7 +17,7 @@ const Title = styled.p<{}>`
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.2rem;
 `;
 
 const Content = styled.div<{}>`

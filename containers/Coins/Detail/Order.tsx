@@ -72,6 +72,10 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
     }
   };
 
+  const handleBuy = () => {
+    alert("Please login to buy");
+  };
+
   const paymentMenu = [
     {
       value: 100000,
@@ -105,7 +109,7 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
         {paymentMenu.map((item) => (
           <Button
             key={item.value}
-            info
+            type="info-small"
             onClick={() => handleChangePayment(item.value)}
             radius="50px"
             width="100%"
@@ -123,7 +127,7 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
         </CoinSymbol>
       </TotalCoin>
       <Button
-        onClick={() => console.log()}
+        onClick={() => handleBuy()}
         width="100%"
       >{`Buy ${name} Now`}</Button>
     </Card>

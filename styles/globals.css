@@ -56,6 +56,10 @@ a {
   display: none;
 }
 
+.canvasjs-chart-credit {
+  display: none;
+}
+
 @media only screen and (max-width: 480px) {
   .mini-hide {
     display: none;

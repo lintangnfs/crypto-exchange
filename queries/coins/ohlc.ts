@@ -2,7 +2,7 @@ import { MARKET_LIST } from "@/consts/queryKeys";
 import { fetchGetCoinOHLC, IFetchGetCoinOHLC } from "@/services/api";
 
 export const queryGetCoinOHLC = (payload: IFetchGetCoinOHLC) => {
-  const { vs_currency, days, slug } = payload;
+  const { vs_currency, days, slug, enabled } = payload;
 
   return {
     queryKey: [
@@ -19,6 +19,7 @@ export const queryGetCoinOHLC = (payload: IFetchGetCoinOHLC) => {
         vs_currency,
         days,
       }),
+    enabled: enabled,
     refetchInterval: 2000,
   };
 };

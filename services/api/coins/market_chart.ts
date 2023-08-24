@@ -3,14 +3,17 @@ import { api } from "../api";
 export interface IFetchGetCoinMarketChart {
   slug: string;
   vs_currency?: string;
+  days?: string;
+  enabled?: boolean;
 }
 
 export const fetchGetCoinMarketChart = async (
   payload: IFetchGetCoinMarketChart
 ) => {
-  const { slug, vs_currency } = payload;
+  const { slug, vs_currency, days } = payload;
 
   const paramsSearch = new URLSearchParams({
+    days,
     vs_currency,
   });
 

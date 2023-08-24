@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
@@ -7,11 +7,7 @@ import SkeletonCoinInfo from "@/components/Skeleton/Coin/Info";
 
 // State Management
 import { useQuery } from "@tanstack/react-query";
-import {
-  queryGetCoinDetail,
-  queryGetCoinMarketChart,
-  queryGetCoinOHLC,
-} from "@/queries";
+import { queryGetCoinDetail } from "@/queries";
 
 import styled from "styled-components";
 
@@ -35,6 +31,12 @@ const DetailChart = dynamic(() => import("./Chart"), {
 export interface ICoinDetail {
   data?: any;
 }
+
+const Wrapper = styled.div<{}>`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+`;
 
 const DetailLayout = styled.div<{}>`
   display: grid;
@@ -65,32 +67,23 @@ const CoinDetail: FC<ICoinDetail> = (props) => {
     }),
   });
 
-  const { data: coinOHLC } = useQuery({
-    ...queryGetCoinOHLC({
-      days: "1",
-      vs_currency: "usd",
-      slug: slug,
-    }),
-  });
-
-  const dataPoints = coinOHLC?.map((item) => {
-    return { x: new Date(item[0]), y: item.shift() };
-  });
-
   return (
     <Section
       title={
-        <CoinInfo
-          image={coinDetail?.image?.small}
-          code={
-            coinDetail?.name ? coinDetail.name.toUpperCase() : "COIN DETAIL"
-          }
-        />
+        <Wrapper>
+          <CoinInfo
+            isTitle
+            image={coinDetail?.image?.small}
+            code={
+              coinDetail?.name ? coinDetail.name.toUpperCase() : "COIN DETAIL"
+            }
+          />
+        </Wrapper>
       }
     >
       <DetailLayout>
         <LeftWrapper>
-          <DetailChart data={coinDetail} dataPoints={dataPoints} />
+          <DetailChart data={coinDetail} />
           <DetailInfo data={coinDetail} />
         </LeftWrapper>
         <RightWrapper>
