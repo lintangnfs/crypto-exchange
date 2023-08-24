@@ -9,8 +9,14 @@ const Button = dynamic(() => import("@/components/Button"), {
   loading: () => <Skeleton height="34.5px" width="97px" radius="8px" />,
 });
 
+const Candlestick = dynamic(() => import("@/components/Charts/Candlestick"), {
+  ssr: false,
+});
+
 const Wrapper = styled.div<{}>`
   position: relative;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #8080804d;
 `;
 
 const ButtonWrapper = styled.div<{}>`
@@ -57,6 +63,7 @@ const Graph: FC<IGraph> = (props) => {
   return (
     <React.Fragment>
       <Wrapper>
+        <Candlestick dataPoints={data} />
         <ButtonWrapper>
           {filterPeriod.map((item, index) => (
             <Button

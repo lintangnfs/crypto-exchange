@@ -15,11 +15,16 @@ export interface ITable {
 
 const TableWrapper = styled.table<{}>`
   width: 100%;
+  margin-bottom: 30px;
   border-collapse: collapse;
 `;
 
 const TR = styled.tr<{}>`
   border-bottom: solid 1px #8080804d;
+`;
+
+const TRColumn = styled(TR)`
+  border-top: solid 1px #8080804d;
 `;
 
 const THead = styled.thead<{}>``;
@@ -63,7 +68,7 @@ const Table: FC<ITable> = (props) => {
   return (
     <TableWrapper>
       <THead>
-        <TR>
+        <TRColumn>
           {props.columns?.map((item, index) => (
             <TH
               key={`head-column-${item.title}-${String(index)}`}
@@ -72,7 +77,7 @@ const Table: FC<ITable> = (props) => {
               {item.title.toUpperCase()}
             </TH>
           ))}
-        </TR>
+        </TRColumn>
       </THead>
       <TBody>
         {props.data?.map((item, idx) => (

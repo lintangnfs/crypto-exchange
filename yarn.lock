@@ -1061,6 +1061,16 @@
     "@babel/helper-validator-identifier" "^7.22.5"
     "to-fast-properties" "^2.0.0"
 
+"@canvasjs/charts@^3.7.16", "@canvasjs/charts@^3.7.5":
+  "integrity" "sha512-G5MpUi2imI+w1LDDm3GYYuBza3qAruC++/CNnZ4pAuBndfGNlubZRBSXCB87GB4oLKnwNtPeGWic/EPWMlLdeg=="
+  "resolved" "https://registry.npmjs.org/@canvasjs/charts/-/charts-3.7.16.tgz"
+  "version" "3.7.16"
+
+"@canvasjs/react-charts@^1.0.0":
+  "integrity" "sha512-wGI675kz65owAwXZWzJULK9GXKCrPV59+CCawXP801f4rmYGmPskdtGrczgJhA8ThFEgIvq3K4qrkpLDPSmxCQ=="
+  "resolved" "https://registry.npmjs.org/@canvasjs/react-charts/-/react-charts-1.0.0.tgz"
+  "version" "1.0.0"
+
 "@emotion/is-prop-valid@^1.2.1":
   "integrity" "sha512-61Mf7Ufx4aDxx1xlDeOm8aFFigGHE4z+0sKCa+IHCeZKiyP9RLD0Mmx7m8b9/Cf37f7NAvQOOJAbQQGVr5uERw=="
   "resolved" "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-1.2.1.tgz"
@@ -1244,6 +1254,11 @@
   dependencies:
     "@tanstack/query-core" "4.33.0"
     "use-sync-external-store" "^1.2.0"
+
+"@types/canvasjs@^1.9.8":
+  "integrity" "sha512-+EFzR0V5oB8KrzjitIIEi0oYznRb9ZvxCBpX5XILUesuKcDJSaDKQ9ccC5wf+c998u7pILKojPEqvOSenURJ2A=="
+  "resolved" "https://registry.npmjs.org/@types/canvasjs/-/canvasjs-1.9.8.tgz"
+  "version" "1.9.8"
 
 "@types/cors@^2.8.13":
   "integrity" "sha512-RG8AStHlUiV5ysZQKq97copd2UmVYw3/pRMLefISZ3S1hK104Cwm7iLQ3fTKx+lsUH2CE8FlLaYeEA2LSeqYUA=="
@@ -1652,6 +1667,11 @@
   "integrity" "sha512-TKiyTVZxJGhsTszLuzb+6vUZSjVOAhClszBr2Ta2k9IwtNBT/4dzmL6aywt0HCgEZlmwJzXJd8yNiob6HgwTRg=="
   "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001522.tgz"
   "version" "1.0.30001522"
+
+"canvasjs@^1.8.3":
+  "integrity" "sha512-60eUT0VjqRgYqdIQcOkXg0Zptfbl4HefA/O51YEf1m/P0uXvE3icI/1KPrXpY9aVxn8gG/BB8DzVoTGCcyBnYg=="
+  "resolved" "https://registry.npmjs.org/canvasjs/-/canvasjs-1.8.3.tgz"
+  "version" "1.8.3"
 
 "chalk@^2.4.2":
   "integrity" "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ=="
@@ -3130,7 +3150,7 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0":
+"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.0.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

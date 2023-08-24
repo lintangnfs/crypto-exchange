@@ -7,7 +7,11 @@ import SkeletonCoinInfo from "@/components/Skeleton/Coin/Info";
 
 // State Management
 import { useQuery } from "@tanstack/react-query";
-import { queryGetCoinDetail, queryGetCoinMarketChart } from "@/queries";
+import {
+  queryGetCoinDetail,
+  queryGetCoinMarketChart,
+  queryGetCoinOHLC,
+} from "@/queries";
 
 import styled from "styled-components";
 
@@ -36,7 +40,7 @@ const DetailLayout = styled.div<{}>`
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(3, minmax(0px, 1fr));
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 800px) {
     gap: 0;
     grid-template-columns: repeat(1, minmax(0px, 1fr));
   }
@@ -44,7 +48,7 @@ const DetailLayout = styled.div<{}>`
 
 const LeftWrapper = styled.div<{}>`
   grid-column: span 2 / span 2;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 800px) {
     grid-column: 1;
   }
 `;
@@ -61,11 +65,16 @@ const CoinDetail: FC<ICoinDetail> = (props) => {
     }),
   });
 
-  const { data: coinChart } = useQuery({
-    ...queryGetCoinMarketChart({
+  const { data: coinOHLC } = useQuery({
+    ...queryGetCoinOHLC({
+      days: "1",
       vs_currency: "usd",
       slug: slug,
     }),
+  });
+
+  const dataPoints = coinOHLC?.map((item) => {
+    return { x: new Date(item[0]), y: item.shift() };
   });
 
   return (
@@ -81,7 +90,7 @@ const CoinDetail: FC<ICoinDetail> = (props) => {
     >
       <DetailLayout>
         <LeftWrapper>
-          <DetailChart data={coinDetail} />
+          <DetailChart data={coinDetail} dataPoints={dataPoints} />
           <DetailInfo data={coinDetail} />
         </LeftWrapper>
         <RightWrapper>

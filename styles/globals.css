@@ -42,7 +42,8 @@ a {
 
 .text-right {
   align-content: end;
-  text-align: right;
+  text-align: right !important;
+  margin-left: auto;
 }
 
 .text-right div {

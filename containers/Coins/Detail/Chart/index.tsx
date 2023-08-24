@@ -5,13 +5,14 @@ import Graph from "./Graph";
 
 export interface IDetailChart {
   data?: any;
+  dataPoints?: any;
 }
 
 const DetailChart: FC<IDetailChart> = (props) => {
   return (
     <Card>
       <CurrentPrice data={props.data} />
-      <Graph data={props.data} />
+      <Graph data={props.dataPoints} />
     </Card>
   );
 };
