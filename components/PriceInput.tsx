@@ -4,6 +4,7 @@ import Input from "./Input";
 
 export interface IInput {
   label?: string;
+  value?: any;
   onChange?: (value) => void;
 }
 
@@ -29,7 +30,7 @@ const PriceInput: FC<IInput> = (props) => {
     <React.Fragment>
       <InputWrapper>
         <Label>{props.label ?? "$"}</Label>
-        <Input isNumber value={0} onChange={props.onChange} />
+        <Input isNumber value={props.value} onChange={props.onChange} />
       </InputWrapper>
     </React.Fragment>
   );

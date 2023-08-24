@@ -53,12 +53,13 @@ export interface IDetailOrder {
 }
 
 const DetailOrder: FC<IDetailOrder> = (props) => {
+  const [totalPayment, setTotalPayment] = useState(0);
   const [totalUnit, setTotalUnit] = useState(0);
   const { data } = props;
   const name = data?.name ?? "";
 
-  const handleBuy = () => {
-    console.log("Buy");
+  const handleChangePayment = (payment) => {
+    setTotalPayment(payment);
   };
 
   const handleChange = (value) => {
@@ -68,6 +69,21 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
 
     setTotalUnit(unit);
   };
+
+  const paymentMenu = [
+    {
+      value: 100000,
+      label: "100.000",
+    },
+    {
+      value: 500000,
+      label: "500.000",
+    },
+    {
+      value: 1000000,
+      label: "1000.000",
+    },
+  ];
 
   return (
     <Card
@@ -82,17 +98,19 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
       }
     >
       <Subtitle>Input purchase amount:</Subtitle>
-      <PriceInput onChange={handleChange} />
+      <PriceInput onChange={handleChange} value={totalPayment} />
       <ButtonWrapper>
-        <Button info onClick={handleBuy} radius="50px" width="100%">
-          100.000
-        </Button>
-        <Button info onClick={handleBuy} radius="50px" width="100%">
-          500.000
-        </Button>
-        <Button info onClick={handleBuy} radius="50px" width="100%">
-          1000.000
-        </Button>
+        {paymentMenu.map((item) => (
+          <Button
+            key={item.value}
+            info
+            onClick={() => handleChangePayment(item.value)}
+            radius="50px"
+            width="100%"
+          >
+            {item.label}
+          </Button>
+        ))}
       </ButtonWrapper>
       <Subtitle>You will get:</Subtitle>
       <TotalCoin>
@@ -102,7 +120,10 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
         `}
         </CoinSymbol>
       </TotalCoin>
-      <Button onClick={handleBuy} width="100%">{`Buy ${name} Now`}</Button>
+      <Button
+        onClick={() => console.log()}
+        width="100%"
+      >{`Buy ${name} Now`}</Button>
     </Card>
   );
 };

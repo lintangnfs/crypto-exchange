@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import styled from "styled-components";
 
 export interface IInput {
@@ -21,7 +21,7 @@ const InputWrapper = styled.input<{}>`
 `;
 
 const Input: FC<IInput> = (props) => {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState(props.value);
 
   const handleChange = (e) => {
     const temptValue = e.target.value;
@@ -30,6 +30,10 @@ const Input: FC<IInput> = (props) => {
       props.onChange(temptValue);
     }
   };
+
+  useEffect(() => {
+    setValue(props.value);
+  }, [props.value]);
 
   return (
     <React.Fragment>
