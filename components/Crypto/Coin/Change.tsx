@@ -21,7 +21,7 @@ const Change = styled.div<{ $size?: string; $down: boolean }>`
   margin: 0;
   ${(props) =>
     css`
-      font-size: ${props.$size === "big" ? "20px" : "16px"};
+      font-size: ${props.$size === "big" ? "24px" : "16px"};
       color: ${props.$down ? "#e54040" : "#25a764"};
     `};
 `;

@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
+import Section from "@/containers/Section";
 import Skeleton from "@/components/Skeleton";
 import SkeletonCoinInfo from "@/components/Skeleton/Coin/Info";
 
@@ -11,8 +12,9 @@ import { queryGetCoinMarkets } from "@/queries";
 
 // Helpers
 import { dataMarkets } from "@/consts/dummyData";
-import { formatToCurrency } from "@/helpers/formatter";
 import { ICoinMarket } from "@/typings/interfaces/coins";
+
+import Slider from "@/components/Slider";
 
 const Table = dynamic(() => import("@/components/Table"), {
   ssr: false,
@@ -108,13 +110,20 @@ const CoinList: FC<ICoinList> = (props) => {
     },
   ];
 
+  const topFiveCoins = coinMarkets?.slice(0, 5) ?? dataMarkets?.slice(0, 5);
+
   return (
     <React.Fragment>
-      <Table
-        columns={columns}
-        data={coinMarkets ?? dataMarkets}
-        rowDataClick={(data) => handleDetail(data)}
-      />
+      <Section title="Market Overview" subtitle="Top 5 Most Known Cryptos">
+        <Slider data={topFiveCoins} onClick={(data) => handleDetail(data)} />
+      </Section>
+      <Section title="Market List" subtitle="All Cryptos in USD">
+        <Table
+          columns={columns}
+          data={coinMarkets ?? dataMarkets}
+          rowDataClick={(data) => handleDetail(data)}
+        />
+      </Section>
     </React.Fragment>
   );
 };

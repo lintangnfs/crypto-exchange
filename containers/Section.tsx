@@ -19,12 +19,12 @@ const Section = ({ title, subtitle, children }: ISection) => {
         {`
           .section {
             width: inherit;
-            padding: 40px 5%;
+            padding: 40px 5% 0;
           }
           .section-title h3 {
             color: #00355f;
             margin: 0;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 28px;
           }
           .section-title p {
@@ -34,7 +34,7 @@ const Section = ({ title, subtitle, children }: ISection) => {
             margin: 8px 0;
           }
           .section-content {
-            margin: 30px 0 20px;
+            margin: 30px 0 0px;
           }
         `}
       </style>

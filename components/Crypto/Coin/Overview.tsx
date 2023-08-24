@@ -2,12 +2,13 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import CoinChange from "./Change";
 import CoinImage from "./Image";
+import CoinPrice from "./Price";
 
 export interface ICoinOverview {
   image?: string;
   code?: string;
   dataChange?: number;
-  price?: string;
+  price?: number;
 }
 
 const Wrapper = styled.div<{}>`
@@ -18,18 +19,15 @@ const Wrapper = styled.div<{}>`
 `;
 
 const Code = styled.p<{}>`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: #1e2329;
-  margin-bottom: 2px;
   margin: 0;
 `;
 
-const Price = styled.p<{}>`
-  font-size: 14px;
+const Price = styled(CoinPrice)`
   color: #808080;
-  margin-bottom: 2px;
-  margin-bottom: 0.8rem;
+  margin-bottom: -10px;
 `;
 
 const CoinOverview: FC<ICoinOverview> = (props) => {
@@ -39,12 +37,12 @@ const CoinOverview: FC<ICoinOverview> = (props) => {
         <CoinImage
           image={props.image}
           name={`coin-image-${props.code}`}
-          height={32}
-          width={32}
+          height={36}
+          width={36}
         />
-        <Code>{props.code}</Code>
+        <Code>{props.code ?? "CODE"}</Code>
       </Wrapper>
-      <Price>{props.price}</Price>
+      <Price price={props.price} size="20px" />
       <CoinChange dataChange={props.dataChange} size="big" />
     </React.Fragment>
   );

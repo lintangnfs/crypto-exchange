@@ -37,6 +37,7 @@ const DetailLayout = styled.div<{}>`
   gap: 2rem;
   grid-template-columns: repeat(3, minmax(0px, 1fr));
   @media only screen and (max-width: 768px) {
+    gap: 0;
     grid-template-columns: repeat(1, minmax(0px, 1fr));
   }
 `;
