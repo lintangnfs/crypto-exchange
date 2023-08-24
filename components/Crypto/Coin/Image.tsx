@@ -16,14 +16,15 @@ const CoinImage: FC<ICoinImage> = (props) => {
     setError(null);
   }, [props.image]);
 
+  const url =
+    error || !props.image
+      ? `${process.env.NEXT_PUBLIC_HOST_IMAGE}?id=1PsGDYooNP8tQ8F5P8i7aSFtRHuXhzqoS`
+      : props.image;
+
   return (
     <React.Fragment>
       <Image
-        src={
-          error
-            ? `${process.env.NEXT_PUBLIC_HOST_IMAGE}?id=1PsGDYooNP8tQ8F5P8i7aSFtRHuXhzqoS`
-            : props.image
-        }
+        src={url}
         onError={setError}
         alt={`coin-image-${name}`}
         height={height ?? 32}

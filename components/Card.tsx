@@ -13,7 +13,7 @@ const Wrapper = styled.div<{}>`
   margin-bottom: 2rem;
 `;
 
-const Title = styled.p<{}>`
+const Title = styled.div<{}>`
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
