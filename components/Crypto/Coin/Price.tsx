@@ -19,7 +19,7 @@ const Wrapper = styled.span<{ size?: string }>`
 const CoinPrice: FC<ICoinPrice> = (props) => {
   const { price, size } = props;
 
-  return <Wrapper size={size}>{!!price && formatToCurrency(price)}</Wrapper>;
+  return <Wrapper size={size}>{formatToCurrency(price ?? 0)}</Wrapper>;
 };
 
 export default CoinPrice;

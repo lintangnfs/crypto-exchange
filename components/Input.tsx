@@ -24,7 +24,7 @@ const Input: FC<IInput> = (props) => {
   const [value, setValue] = useState(props.value);
 
   const handleChange = (e) => {
-    const temptValue = e.target.value;
+    let temptValue = e.target.value.replace(/^0/, "");
     setValue(temptValue);
     if (props.onChange) {
       props.onChange(temptValue);

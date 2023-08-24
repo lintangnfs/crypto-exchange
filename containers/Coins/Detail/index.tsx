@@ -34,12 +34,18 @@ export interface ICoinDetail {
 
 const DetailLayout = styled.div<{}>`
   display: grid;
-  grid-template-columns: repeat(3, minmax(0px, 1fr));
   gap: 2rem;
+  grid-template-columns: repeat(3, minmax(0px, 1fr));
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(1, minmax(0px, 1fr));
+  }
 `;
 
 const LeftWrapper = styled.div<{}>`
   grid-column: span 2 / span 2;
+  @media only screen and (max-width: 768px) {
+    grid-column: 1;
+  }
 `;
 
 const RightWrapper = styled.div<{}>``;
@@ -66,7 +72,9 @@ const CoinDetail: FC<ICoinDetail> = (props) => {
       title={
         <CoinInfo
           image={coinDetail?.image?.small}
-          code={coinDetail?.name.toUpperCase()}
+          code={
+            coinDetail?.name ? coinDetail.name.toUpperCase() : "COIN DETAIL"
+          }
         />
       }
     >

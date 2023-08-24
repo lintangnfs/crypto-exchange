@@ -53,10 +53,11 @@ const CoinChange: FC<ICoinChange> = (props) => {
       <Wrapper>
         <Change $size={props.size} $down={isNegativeChange}>
           <Arrow $down={isNegativeChange}>➤</Arrow>
-          <p>{` ${props.dataChange
-            ?.toFixed(2)
-            .toString()
-            .replace("-", "")} %`}</p>
+          <p>{` ${
+            props.dataChange
+              ? props.dataChange?.toFixed(2).toString().replace("-", "")
+              : 0
+          } %`}</p>
         </Change>
       </Wrapper>
     </React.Fragment>

@@ -80,6 +80,7 @@ const CoinList: FC<ICoinList> = (props) => {
       title: "Price",
       currency: "USD",
       dataIndex: "current_price",
+      className: "mini-hide",
       render: (data: ICoinMarket) => {
         return <CoinPrice price={data.current_price} />;
       },
@@ -87,31 +88,24 @@ const CoinList: FC<ICoinList> = (props) => {
     {
       title: "24h Change",
       dataIndex: "price_change_percentage_24h",
+      className: "mini-hide",
       render: (data: ICoinMarket) => {
         return <CoinChange dataChange={data.price_change_percentage_24h} />;
       },
     },
-    // {
-    //   title: "24h Change",
-    //   dataIndex: "price_change_percentage_24h",
-    //   render: (data: ICoinMarket) => {
-    //     return <CoinChange dataChange={data.price_change_percentage_24h} />;
-    //   },
-    // },
-    // {
-    //   title: "24h Change",
-    //   dataIndex: "price_change_percentage_24h",
-    //   render: (data: ICoinMarket) => {
-    //     return <CoinChange dataChange={data.price_change_percentage_24h} />;
-    //   },
-    // },
-    // {
-    //   title: "24h Change",
-    //   dataIndex: "price_change_percentage_24h",
-    //   render: (data: ICoinMarket) => {
-    //     return <CoinChange dataChange={data.price_change_percentage_24h} />;
-    //   },
-    // },
+    {
+      title: "Info",
+      dataIndex: "price_change_percentage_24h",
+      className: "mini-show text-right",
+      render: (data: ICoinMarket) => {
+        return (
+          <React.Fragment>
+            <CoinPrice price={data.current_price} />
+            <CoinChange dataChange={data.price_change_percentage_24h} />
+          </React.Fragment>
+        );
+      },
+    },
   ];
 
   return (

@@ -39,3 +39,27 @@ a {
 .content {
   margin-top: 60px;
 }
+
+.text-right {
+  align-content: end;
+  text-align: right;
+}
+
+.text-right div {
+  align-content: end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.mini-show {
+  display: none;
+}
+
+@media only screen and (max-width: 480px) {
+  .mini-hide {
+    display: none;
+  }
+  .mini-show {
+    display: block;
+  }
+}

@@ -4,8 +4,9 @@ import styled, { css } from "styled-components";
 export interface ITable {
   columns?: {
     title: string;
-    dataIndex: string;
     width?: number;
+    className?: string;
+    dataIndex: string;
     render?: (data?: any) => void;
   }[];
   data?: any;
@@ -30,6 +31,9 @@ const TH = styled.th<{}>`
   color: #808080f2;
   text-align: left;
   padding: 10px 1.25rem;
+  @media only screen and (max-width: 768px) {
+    min-width: fit-content;
+  }
 `;
 
 const TD = styled.td<{ $clickable: boolean }>`
@@ -37,6 +41,9 @@ const TD = styled.td<{ $clickable: boolean }>`
   padding: 1.25rem;
   font-size: 16px;
   font-weight: 600;
+  @media only screen and (max-width: 768px) {
+    min-width: fit-content;
+  }
   ${(props) =>
     props.$clickable &&
     css`
@@ -58,7 +65,10 @@ const Table: FC<ITable> = (props) => {
       <THead>
         <TR>
           {props.columns?.map((item, index) => (
-            <TH key={`head-column-${item.title}-${String(index)}`}>
+            <TH
+              key={`head-column-${item.title}-${String(index)}`}
+              className={item.className ?? ""}
+            >
               {item.title.toUpperCase()}
             </TH>
           ))}
@@ -72,6 +82,7 @@ const Table: FC<ITable> = (props) => {
                 key={`data-value-${column.dataIndex}-${String(index)}`}
                 $clickable={!!props.rowDataClick}
                 onClick={() => handleClickRow(item)}
+                className={column.className ?? ""}
               >
                 {column.render
                   ? column.render(item)

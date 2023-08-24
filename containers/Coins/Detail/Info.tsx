@@ -9,12 +9,16 @@ const DetailInfo: FC<IDetailInfo> = (props) => {
   const { data } = props;
 
   return (
-    <Card title={`About ${data?.name ?? ""}`}>
-      <div
-        style={{ textAlign: "justify" }}
-        dangerouslySetInnerHTML={{ __html: data?.description?.en }}
-      />
-    </Card>
+    <React.Fragment>
+      {data && (
+        <Card title={`About ${data?.name ?? ""}`}>
+          <div
+            style={{ textAlign: "justify" }}
+            dangerouslySetInnerHTML={{ __html: data?.description?.en }}
+          />
+        </Card>
+      )}
+    </React.Fragment>
   );
 };
 

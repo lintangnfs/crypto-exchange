@@ -64,10 +64,12 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
 
   const handleChange = (value) => {
     const totalPayment = Number(value);
-    const price = Number(data?.market_data?.current_price?.usd);
+    const price = data?.market_data?.current_price?.usd;
     const unit = Number((totalPayment / price).toFixed(9));
 
-    setTotalUnit(unit);
+    if (price) {
+      setTotalUnit(unit);
+    }
   };
 
   const paymentMenu = [
@@ -116,7 +118,7 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
       <TotalCoin>
         <CoinSymbol>
           {`
-          ${data?.symbol?.toUpperCase()} ${totalUnit}
+          ${data?.symbol ? data.symbol?.toUpperCase() : "CODE"} ${totalUnit}
         `}
         </CoinSymbol>
       </TotalCoin>

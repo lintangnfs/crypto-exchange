@@ -18,6 +18,14 @@ const ButtonWrapper = styled.div<{}>`
   gap: 15px;
   align-items: center;
   justify-content: space-between;
+  @media only screen and (max-width: 768px) {
+    gap: 5px;
+  }
+  @media only screen and (max-width: 480px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+  }
 `;
 
 export interface IGraph {
