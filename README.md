@@ -4,7 +4,11 @@ Welcome to Crypto Exchange Website
 
 ## Description
 
-Crypto Exchange Website is a Cryptocurrency Trading Page to monitoring crypto exchange. This application uses [![Coingecko API][CoinGecko]][CoinGecko-url] to get data.
+Crypto Exchange Website is a Cryptocurrency Trading Page to monitoring crypto exchange.
+
+## API and Data
+
+This application uses CoinGecko API to get data. [![Coingecko API][CoinGecko]][CoinGecko-url]
 
 ## Demo
 
@@ -14,10 +18,11 @@ You can access a demo of this app [here](https://crypto-exchange-puce.vercel.app
 
 [![Next][Next.js]][Next-url] [![Typescript][Ts]][Ts-url] [![Query][React-query]][React-query-url]
 
-On Progess :
+### On Progess :
+
 [![Websocket][Socket]][Socket-url]
 
-## Scripts that help us
+## Scripts
 
 | Command      | Description                         |
 | ------------ | ----------------------------------- |
