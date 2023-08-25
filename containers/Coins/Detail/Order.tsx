@@ -46,6 +46,9 @@ const CoinSymbol = styled.p<{}>`
   font-size: 28px;
   line-height: 50px;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export interface IDetailOrder {
@@ -61,7 +64,7 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
   const handleChange = (value) => {
     const totalPayment = Number(value);
     const price = data?.market_data?.current_price?.usd;
-    const unit = Number((totalPayment / Number(price)).toFixed(9));
+    const unit = Number((totalPayment / Number(price)).toFixed(5));
 
     if (price) {
       setTotalUnit(unit);
