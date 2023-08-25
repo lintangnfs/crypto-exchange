@@ -63,7 +63,7 @@ const Graph: FC<IGraph> = (props) => {
     }),
   });
 
-  const { data: coinMarket } = useQuery({
+  const { data: cointMarketChart } = useQuery({
     ...queryGetCoinMarketChart({
       days,
       vs_currency: "usd",
@@ -97,7 +97,7 @@ const Graph: FC<IGraph> = (props) => {
     <React.Fragment>
       <Wrapper>
         {menu === "market" ? (
-          <Line data={coinMarket} />
+          <Line data={cointMarketChart} />
         ) : (
           <Candlestick
             data={coinOHLC}

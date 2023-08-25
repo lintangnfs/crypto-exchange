@@ -58,10 +58,6 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
   const { data } = props;
   const name = data?.name ?? "";
 
-  const handleChangePayment = (payment) => {
-    setTotalPayment(payment);
-  };
-
   const handleChange = (value) => {
     const totalPayment = Number(value);
     const price = data?.market_data?.current_price?.usd;
@@ -70,6 +66,11 @@ const DetailOrder: FC<IDetailOrder> = (props) => {
     if (price) {
       setTotalUnit(unit);
     }
+  };
+
+  const handleChangePayment = (payment) => {
+    setTotalPayment(payment);
+    handleChange(payment);
   };
 
   const handleBuy = () => {

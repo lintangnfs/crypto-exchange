@@ -6,6 +6,7 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { CryptoProvider } from "@/helpers/context/CryptoContext";
 
 const queryClient = new QueryClient();
 
@@ -13,7 +14,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <Component {...pageProps} />
+        <CryptoProvider>
+          <Component {...pageProps} />
+        </CryptoProvider>
         <ReactQueryDevtools initialIsOpen={true} />
       </Hydrate>
     </QueryClientProvider>

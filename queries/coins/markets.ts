@@ -16,5 +16,7 @@ export const queryGetCoinMarkets = (payload: IFetchGetCoinMarkets) => {
         vs_currency,
       }),
     refetchInterval: 2000,
+    staleTime: Infinity,
+    cacheTime: Infinity,
   };
 };
