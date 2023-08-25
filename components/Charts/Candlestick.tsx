@@ -78,7 +78,7 @@ const Candlestick: FC<ICandlestick> = (props) => {
   return (
     <React.Fragment>
       <Wrapper>
-        <CanvasJSChart options={options} onRef={(ref) => console.log("oke")} />
+        <CanvasJSChart options={options} />
       </Wrapper>
     </React.Fragment>
   );

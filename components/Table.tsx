@@ -27,6 +27,12 @@ const TRColumn = styled(TR)`
   border-top: solid 1px #8080804d;
 `;
 
+const TRData = styled(TR)`
+  &:hover {
+    background: #f478200d;
+  }
+`;
+
 const THead = styled.thead<{}>``;
 
 const TBody = styled.tbody<{}>``;
@@ -81,7 +87,7 @@ const Table: FC<ITable> = (props) => {
       </THead>
       <TBody>
         {props.data?.map((item, idx) => (
-          <TR key={`data-row-${item.id}-${String(idx)}`}>
+          <TRData key={`data-row-${item.id}-${String(idx)}`}>
             {props.columns?.map((column, index) => (
               <TD
                 key={`data-value-${column.dataIndex}-${String(index)}`}
@@ -94,7 +100,7 @@ const Table: FC<ITable> = (props) => {
                   : item[`${column.dataIndex}`]}
               </TD>
             ))}
-          </TR>
+          </TRData>
         ))}
       </TBody>
     </TableWrapper>

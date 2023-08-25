@@ -63,7 +63,7 @@ const Line: FC<ILine> = (props) => {
   return (
     <React.Fragment>
       <Wrapper>
-        <CanvasJSChart options={options} onRef={(ref) => console.log("oke")} />
+        <CanvasJSChart options={options} />
       </Wrapper>
     </React.Fragment>
   );
