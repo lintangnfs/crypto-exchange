@@ -8,7 +8,7 @@ Crypto Exchange Website is a Cryptocurrency Trading Page to monitoring crypto ex
 
 ## API and Data
 
-This application uses CoinGecko API to get data. [![Coingecko API][CoinGecko]][CoinGecko-url]
+This application uses CoinGecko API to get data. <br />[![Coingecko API][CoinGecko]][CoinGecko-url]
 
 ## Demo
 
