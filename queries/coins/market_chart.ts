@@ -23,6 +23,8 @@ export const queryGetCoinMarketChart = (payload: IFetchGetCoinMarketChart) => {
         vs_currency,
       }),
     refetchInterval: 2000,
+    staleTime: Infinity,
+    cacheTime: Infinity,
     enabled: enabled,
   };
 };

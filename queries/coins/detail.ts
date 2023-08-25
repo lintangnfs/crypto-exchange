@@ -15,5 +15,6 @@ export const queryGetCoinDetail = (payload: IFetchGetCoinDetail) => {
       await fetchGetCoinDetail({
         slug,
       }),
+    refetchInterval: 2000,
   };
 };

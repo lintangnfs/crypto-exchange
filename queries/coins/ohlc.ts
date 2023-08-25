@@ -20,6 +20,8 @@ export const queryGetCoinOHLC = (payload: IFetchGetCoinOHLC) => {
         days,
       }),
     enabled: enabled,
+    staleTime: Infinity,
+    cacheTime: Infinity,
     refetchInterval: 2000,
   };
 };

@@ -76,19 +76,25 @@ const Arrow = styled.div<{}>`
   }
 `;
 
-const Button = styled.div<{}>`
+const Button = styled.button<{}>`
   margin: 0;
   padding: 0;
   z-index: 11;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   opacity: 0.75;
+  border: none;
   background: #f47820;
   border-radius: 50px;
   background: transparant;
   transition-property: all;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  color: white;
+  &:disabled {
+    cursor: not-allowed;
+    visibility: hidden;
+  }
 `;
 
 const ButtonLeft = styled(Button)`
@@ -151,37 +157,11 @@ const SliderComponent: FC<ISliderComponent> = (props) => {
     <React.Fragment>
       <Wrapper>
         <Arrow className="mini-hide">
-          <ButtonLeft onClick={() => movePrev()}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-12 w-20 -ml-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="white"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
+          <ButtonLeft onClick={() => movePrev()} disabled={isDisabled("prev")}>
+            ◀
           </ButtonLeft>
-          <ButtonRight onClick={() => moveNext()}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-12 w-20 -ml-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="white"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+          <ButtonRight onClick={() => moveNext()} disabled={isDisabled("next")}>
+            ▶
           </ButtonRight>
         </Arrow>
         <Container>
